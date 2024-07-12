@@ -1,0 +1,15 @@
+version: '3'
+services:
+  server_a:
+    build: ./server_a
+    depends_on:
+      - server_b
+    ports: 
+      - "8501:8501"
+  server_b:
+    build: ./server_b
+    volumes:
+      - ./Vehicle_Yolov8:/app/Vehicle_Yolov8
+      - ./Lane_Yolov8:/app/Lane_Yolov8
+    ports:
+      - "5002:5002"
